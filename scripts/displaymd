@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Display a MarkDown file as a pdf.
+# Required packages: pandoc, wkhtmltopdf, xreader (or any other pdf reader of your choise)
+
+echo '<head><meta charset="utf-8"></head>' > junk_out.html
+pandoc --verbose $1 >> junk_out.html
+wkhtmltopdf junk_out.html junk_pdf
+xreader junk_pdf
+rm junk_pdf junk_out.html
